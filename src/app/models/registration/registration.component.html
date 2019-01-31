@@ -1,0 +1,89 @@
+<div class="container">
+  <form class="form" [formGroup]="form">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Фамилия" formControlName="lastname" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Имя" formControlName="firstname" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Отчество" formControlName="patronic" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Дата рождения" formControlName="dateOfBd" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-radio-group formControlName="sex" required>
+      <mat-radio-button value="1">Мужской</mat-radio-button>
+      <mat-radio-button value="2">Женский</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Серия паспорта" formControlName="passportSeries" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="№ паспорта" formControlName="passportNumber" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Кем выдан" formControlName="issuedBy" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Идентификационный номер" formControlName="identificationNumber" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Место рождения" formControlName="placeOfBirth" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Город фактического проживания" formControlName="city" required>
+        <mat-option *ngFor="let city of cities" [value]="city.value">
+          {{city.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field >
+      <input matInput type="text" placeholder="Адрес прописки" formControlName="address" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="tel" placeholder="Мобильный телефон" formControlName="phoneNumber">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Семейное положение" formControlName="familyStatus" required>
+        <mat-option *ngFor="let stat of status" [value]="stat.value">
+          {{stat.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Гражданство" formControlName="nationality" required>
+        <mat-option *ngFor="let nationality of nationalities" [value]="nationality.value">
+          {{nationality.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Инвалидность" formControlName="disability" required>
+        <mat-option *ngFor="let disability of disabilities" [value]="disability.value">
+          {{disability.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Ежемесячный доход" formControlName="revenue">
+    </mat-form-field>
+    <mat-checkbox formControlName="isRetiree" required>Пенсионер</mat-checkbox>
+
+    <mat-form-field>
+      <input matInput type="email" placeholder="Email" formControlName="email" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Пароль" formControlName="password" required>
+    </mat-form-field>
+
+
+    <button mat-button type="submit" [disabled]="!form.valid" (click)="onSubmit()">Отправить</button>
+  </form>
+</div>
