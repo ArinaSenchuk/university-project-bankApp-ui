@@ -1,12 +1,45 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {User} from './user';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit {
+
+  user: User = new User();
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {}
+
+  onSubmit() {
+    this.user.firstname = this.form.controls['firstname'].value;
+    this.user.lastname = this.form.controls['lastname'].value;
+    this.user.patronic = this.form.controls['patronic'].value;
+    this.user.dateOfBd = this.form.controls['dateOfBd'].value;
+    this.user.sex = this.form.controls['sex'].value;
+    this.user.passportSeries = this.form.controls['passportSeries'].value;
+    this.user.passportNumber = this.form.controls['passportNumber'].value;
+    this.user.issuedBy = this.form.controls['issuedBy'].value;
+    this.user.identificationNumber = this.form.controls['identificationNumber'].value;
+    this.user.placeOfBirth = this.form.controls['placeOfBirth'].value;
+    this.user.city = this.form.controls['city'].value;
+    this.user.address = this.form.controls['address'].value;
+    this.user.phoneNumber = this.form.controls['phoneNumber'].value;
+    this.user.familyStatus = this.form.controls['familyStatus'].value;
+    this.user.nationality = this.form.controls['nationality'].value;
+    this.user.disability = this.form.controls['disability'].value;
+    this.user.revenue = this.form.controls['revenue'].value;
+    this.user.isRetiree = this.form.controls['isRetiree'].value;
+    this.user.email = this.form.controls['email'].value;
+    this.user.password = this.form.controls['password'].value;
+
+  this.http.post<User>('http://localhost:8080/users/save', this.user).subscribe((user: User) => this.user = user);
+  }
 
   form = new FormGroup({
     lastname: new FormControl(),
@@ -31,10 +64,6 @@ export class RegistrationComponent {
     email: new FormControl(),
     password: new FormControl(),
   });
-
-    onSubmit() {
-      console.log(this.form.value);
-    }
 
   cities: Option[] = [
     {value: 'Город 1', viewValue: 'Город'},
@@ -63,6 +92,8 @@ export class RegistrationComponent {
     {value: '2', viewValue: '2 Группа'},
     {value: '3', viewValue: '3 группа'}
   ];
+
+
 }
 
 export interface Option {
