@@ -1,4 +1,7 @@
+<app-navbar></app-navbar>
+
 <div class="container">
+  <h2>Заполните форму для регистрации</h2>
   <form class="form" [formGroup]="form">
     <mat-form-field>
       <input matInput type="text" placeholder="Фамилия" formControlName="lastname" pattern="^[А-Яа-яЁё]+$" required>
@@ -15,8 +18,8 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-radio-group formControlName="sex" required>
-      <mat-radio-button value="1">Мужской</mat-radio-button>
-      <mat-radio-button value="2">Женский</mat-radio-button>
+      <mat-radio-button value="1">Мужчина</mat-radio-button>
+      <mat-radio-button value="2">Женщина</mat-radio-button>
     </mat-radio-group>
     <mat-form-field>
       <input matInput type="text" placeholder="Серия паспорта" formControlName="passportSeries" maxlength="2" pattern="[A-Za-z]{2}" required>
@@ -84,6 +87,6 @@
     </mat-form-field>
 
 
-    <button mat-button type="submit" [disabled]="!form.valid" (click)="onSubmit()">Отправить</button>
+    <button mat-button type="submit" [disabled]="!form.valid" (click)="onSubmit()">Зарегистрироваться</button>
   </form>
 </div>

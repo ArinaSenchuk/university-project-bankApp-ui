@@ -14,6 +14,7 @@ import {
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {NavbarModule} from '../components/navbar/navbar.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    NavbarModule,
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
