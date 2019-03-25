@@ -1,0 +1,24 @@
+<p><strong>Фамилия: </strong>{{profile.lastname}}</p>
+<p><strong>Имя: </strong>{{profile.firstname}}</p>
+<p><strong>Отчество: </strong>{{profile.patronic}}</p>
+<p><strong>Пол: </strong>{{profile.sex.label}}</p>
+<p><strong>Дата рождения: </strong>{{profile.dateOfBd}}</p>
+<p><strong>Серия паспорта: </strong>{{profile.passportSeries}}</p>
+<p><strong>Номер паспорта: </strong>{{profile.passportNumber}}</p>
+<p><strong>Идентификационный номер: </strong>{{profile.identificationNumber}}</p>
+<p><strong>Выдан: </strong>{{profile.issuedBy}}</p>
+<p><strong>Место рождения: </strong>{{profile.placeOfBirth}}</p>
+<p><strong>Город проживания: </strong>{{profile.city.label}}</p>
+<p><strong>Адрес: </strong>{{profile.address}}</p>
+<p><strong>Номер телефона: </strong>{{profile.phoneNumber}}</p>
+<p><strong>Семейное положение: </strong>{{profile.familyStatus.label}}</p>
+<p><strong>Национальность: </strong>{{profile.nationality.label}}</p>
+<p><strong>Инвалидность: </strong>{{profile.disability.label}}</p>
+
+<div *ngIf="profile.isRetiree; then thenBlockRetiree else elseBlockRetiree"></div>
+<ng-template #thenBlockRetiree><p><strong>Пенсионер: </strong> нет</p></ng-template>
+<ng-template #elseBlockRetiree><p><strong>Пенсионер: </strong> да</p></ng-template>
+
+<div *ngIf="profile.revenue == null; then thenBlockRevenue else elseBlockRevenue"></div>
+<ng-template #thenBlockRevenue><p><strong>Ежемесячный доход: </strong> не указано</p></ng-template>
+<ng-template #elseBlockRevenue><p><strong>Ежемесячный доход: </strong>{{profile.revenue}} бел.руб</p></ng-template>

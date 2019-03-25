@@ -1,7 +1,4 @@
-<app-navbar></app-navbar>
-
 <div class="container">
-  <h2>Заполните форму для регистрации</h2>
   <form class="form" [formGroup]="form">
     <mat-form-field>
       <input matInput type="text" placeholder="Фамилия" formControlName="lastname" pattern="^[А-Яа-яЁё]+$" required>
@@ -49,13 +46,13 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Семейное положение" formControlName="familyStatus" required>
-        <mat-option *ngFor="let status of options.status" [value]="status">{{status.label}}</mat-option>
+      <mat-select placeholder="Семейное положение" formControlName="familyStatus" [(value)]="profile.familyStatus"  required>
+        <mat-option  *ngFor="let status of options.status" [value]="status" >{{status.label}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Гражданство" formControlName="nationality" required>
+      <mat-select placeholder="Гражданство" formControlName="nationality" [(value)]="profile.nationality" required>
         <mat-option *ngFor="let nationality of options.nationality" [value]="nationality">{{nationality.label}}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -70,17 +67,6 @@
     </mat-form-field>
     <mat-checkbox formControlName="isRetiree">Пенсионер</mat-checkbox>
 
-    <mat-form-field>
-      <input matInput type="email" placeholder="Email" formControlName="email" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" placeholder="Логин" formControlName="login" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="password" placeholder="Пароль" formControlName="password" pattern="[A-Za-z0-9]{8,}" required>
-    </mat-form-field>
-
-
-    <button mat-button type="submit" [disabled]="!form.valid" (click)="onSubmit()">Зарегистрироваться</button>
+    <button mat-button type="submit" [disabled]="!form.valid" (click)="onEdit()">Изменить</button>
   </form>
 </div>

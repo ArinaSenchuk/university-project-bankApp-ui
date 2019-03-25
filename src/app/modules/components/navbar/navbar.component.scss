@@ -16,6 +16,38 @@
       }
     }
 
+    &_content {
+      width: 30%;
+      margin: 0 10% 0 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &_link:hover {
+        background: -webkit-linear-gradient(top, #fffc00 0, #fcdf00 100%);
+      }
+
+      &_link {
+        background: #fffc00;
+        height: 33%;
+        width: 70%;
+        border: 1px solid #fffc00;
+        border-radius: 24px;
+        margin: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        & a {
+          width: 100%;
+          text-align: center;
+          color: black;
+          text-decoration: none;
+        }
+      }
+    }
   }
 
   &_menu {

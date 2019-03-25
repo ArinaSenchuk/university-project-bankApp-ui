@@ -4,6 +4,14 @@
       <a routerLink="/main"><img src="../../../../assets/img/logo/logo_good.jpg"></a>
     </div>
     <div class="header_banner_content">
+      <!--<ng-template *ngIf="!flag" (navbarEdited)="onNavbarChange()">-->
+        <div class="header_banner_content_link">
+          <a routerLink="/registration">Регистрация</a><br>
+        </div>
+        <div class="header_banner_content_link">
+          <a routerLink="/login">Войти</a>
+        </div>
+      <!--</ng-template>-->
     </div>
   </div>
   <div class="header_menu">

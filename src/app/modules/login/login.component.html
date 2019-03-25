@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h2>Войти</h2>
+  <form class="form">
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="Логин" [formControl]="login" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Пароль" [formControl]="password" pattern="[A-Za-z0-9]{1,}" required>
+    </mat-form-field>
+
+    <button mat-button type="submit" (click)="onSubmit()">Войти</button>
+  </form>
+</div>

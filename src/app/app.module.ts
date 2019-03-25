@@ -7,6 +7,12 @@ import {RegistrationModule} from './modules/registration/registration.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MainModule} from './modules/main/main.module';
 import {NavbarModule} from './modules/components/navbar/navbar.module';
+import {LoginModule} from './modules/login/login.module';
+import {ProfileModule} from './modules/profile/profile.module';
+import {ProfileShowModule} from './modules/components/profileShow/profileShow.module';
+import {ProfileEditModule} from './modules/components/profileEdit/profileEdit.module';
+import {DepositComponent} from './modules/deposit/deposit.component';
+import {DepositModule} from './modules/deposit/deposit.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,12 @@ import {NavbarModule} from './modules/components/navbar/navbar.module';
     BrowserAnimationsModule,
     RegistrationModule,
     MainModule,
-    NavbarModule
+    NavbarModule,
+    LoginModule,
+    ProfileModule,
+    ProfileShowModule,
+    ProfileEditModule,
+    DepositModule
   ],
   providers: [],
   bootstrap: [AppComponent]

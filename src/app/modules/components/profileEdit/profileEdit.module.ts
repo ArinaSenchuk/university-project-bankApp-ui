@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { RegistrationComponent } from './registration.component';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ProfileEditComponent} from './profileEdit.component';
+import {AppRoutingModule} from '../../../app-routing.module';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -9,23 +12,20 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatNativeDateModule,
-  MatRadioModule, MatSelectModule
+  MatRadioModule,
+  MatSelectModule
 } from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {NavbarModule} from '../components/navbar/navbar.module';
-import {AppRoutingModule} from '../../app-routing.module';
+
 
 
 @NgModule({
   declarations: [
-    RegistrationComponent
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NavbarModule,
     AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
@@ -36,12 +36,10 @@ import {AppRoutingModule} from '../../app-routing.module';
     MatRadioModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatButtonModule,
-    HttpClientModule
-
+    MatButtonModule
   ],
   providers: [],
-  bootstrap: [RegistrationComponent],
-  exports: [RegistrationComponent]
+  bootstrap: [ProfileEditComponent],
+  exports: [ProfileEditComponent]
 })
-export class RegistrationModule { }
+export class ProfileEditModule { }

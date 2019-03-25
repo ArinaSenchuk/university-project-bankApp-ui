@@ -8,7 +8,12 @@ import {Component} from '@angular/core';
 })
 export class NavbarComponent {
 
+  flag = false;
 
+  //
+  // onNavbarChange() {
+  //   this.flag = true;
+  // }
 
 }
 

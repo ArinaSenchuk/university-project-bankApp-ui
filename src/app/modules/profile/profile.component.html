@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+
+
+  <div class="profile">
+    <div class="header">
+      <h2>Личная информация</h2>
+      <div class="header-button">
+        <button class="button-menu" mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="edit()">
+            <mat-icon>dialpad</mat-icon>
+            <span>Редактировать</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>voicemail</mat-icon>
+            <span>Удалить</span>
+          </button>
+        </mat-menu>
+      </div>
+
+    </div>
+    <hr>
+
+    <app-profileshow *ngIf="!flag" [profile]="profile"></app-profileshow>
+    <app-profileedit *ngIf="flag" [(profile)]="profile" (profileEdited)="onProfileChange()"></app-profileedit>
+
+  </div>
+</div>
