@@ -1,12 +1,10 @@
 import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Options} from '../../../models/Options';
-import {Profile} from '../../registration/profile';
+import {ProfileOptions} from '../../../models/Options';
+import {Profile} from '../../../models/Profile';
 import {TokenService} from '../../../service/token.service';
 import {Router} from '@angular/router';
-import {MatOption} from '@angular/material';
-
 
 
 @Component({
@@ -22,7 +20,7 @@ export class ProfileEditComponent implements OnInit {
               private cdr: ChangeDetectorRef) {
   }
 
-  options: Options = {sex: [], city: [], nationality: [], disability: [], status: []};
+  profileOptions: ProfileOptions = {sex: [], city: [], nationality: [], disability: [], status: []};
 
   @Input() profile: Profile = new Profile();
   @Output() profileEdited = new EventEmitter();
@@ -50,8 +48,8 @@ export class ProfileEditComponent implements OnInit {
   });
 
   ngOnInit() {
-    this.http.get<Options>('http://localhost:8080/reference_data/options').subscribe(success => {
-      this.options = success;
+    this.http.get<ProfileOptions>('http://localhost:8080/reference_data/options/profile').subscribe(success => {
+      this.profileOptions = success;
     });
 
     this.buildForm();
@@ -106,10 +104,10 @@ export class ProfileEditComponent implements OnInit {
     this.profile.isRetiree = this.form.controls['isRetiree'].value;
 
 
-    this.http.post(`http://localhost:8080/api/profiles/save?access_token=${this.tokenService.token}`, this.profile).subscribe(success => {
+    this.http.put(`http://localhost:8080/api/profiles?access_token=${this.tokenService.token}`, this.profile).subscribe(success => {
       this.cdr.detectChanges();
       this.profileEdited.emit();
-  });
+  }, error => alert(error.error.message));
 
 }
 

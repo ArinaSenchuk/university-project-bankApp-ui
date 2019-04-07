@@ -3,25 +3,25 @@ import { NgModule } from '@angular/core';
 
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NavbarComponent} from './navbar.component';
+import {ProfileAccountInfoComponent} from './profileAccountInfo.component';
 import {AppRoutingModule} from '../../../app-routing.module';
-import {MatButtonModule} from '@angular/material';
+import {NavbarModule} from '../navbar/navbar.module';
 
 
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    ProfileAccountInfoComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatButtonModule
+    NavbarModule
 
   ],
   providers: [],
-  bootstrap: [NavbarComponent],
-  exports: [NavbarComponent]
+  bootstrap: [ProfileAccountInfoComponent],
+  exports: [ProfileAccountInfoComponent]
 })
-export class NavbarModule { }
+export class ProfileAccountInfoModule { }

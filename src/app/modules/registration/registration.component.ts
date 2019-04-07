@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {User} from './user';
+import {User} from '../../models/User';
 import {HttpClient} from '@angular/common/http';
-import {Profile} from './profile';
+import {Profile} from '../../models/Profile';
 import {Router} from '@angular/router';
-import {Options} from '../../models/Options';
+import {ProfileOptions} from '../../models/Options';
 
 @Component({
   selector: 'app-registration',
@@ -16,7 +16,7 @@ export class RegistrationComponent implements OnInit {
   user: User = new User();
 
   profile: Profile = new Profile();
-  options: Options = new Options();
+  profileOptions: ProfileOptions = new ProfileOptions();
 
 
   constructor(private http: HttpClient,
@@ -24,8 +24,8 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
 
-    this.http.get<Options>('http://localhost:8080/reference_data/options').subscribe(success => {
-      this.options = success;
+    this.http.get<ProfileOptions>('http://localhost:8080/reference_data/options/profile').subscribe(success => {
+      this.profileOptions = success;
     });
   }
 
@@ -63,7 +63,7 @@ export class RegistrationComponent implements OnInit {
 
     this.http.post('http://localhost:8080/registration/save', body).subscribe(success => {
       this.router.navigate(['/login']);
-    });
+    }, error => alert(error.error.message));
   }
 
   form = new FormGroup({

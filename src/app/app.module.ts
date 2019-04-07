@@ -11,8 +11,8 @@ import {LoginModule} from './modules/login/login.module';
 import {ProfileModule} from './modules/profile/profile.module';
 import {ProfileShowModule} from './modules/components/profileShow/profileShow.module';
 import {ProfileEditModule} from './modules/components/profileEdit/profileEdit.module';
-import {DepositComponent} from './modules/deposit/deposit.component';
 import {DepositModule} from './modules/deposit/deposit.module';
+import {ProfileAccountInfoModule} from './modules/components/profileAccountInfo/profileAccountInfo.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import {DepositModule} from './modules/deposit/deposit.module';
     ProfileModule,
     ProfileShowModule,
     ProfileEditModule,
+    ProfileAccountInfoModule,
     DepositModule
   ],
   providers: [],

@@ -5,12 +5,14 @@ import {MainComponent} from './modules/main/main.component';
 import {LoginComponent} from './modules/login/login.component';
 import {ProfileComponent} from './modules/profile/profile.component';
 import {DepositComponent} from './modules/deposit/deposit.component';
+import {ProfileAccountInfoComponent} from './modules/components/profileAccountInfo/profileAccountInfo.component';
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'main', component: MainComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'profileAccountInfo', component: ProfileAccountInfoComponent },
   { path: 'deposit', component: DepositComponent },
   {
     path: '',

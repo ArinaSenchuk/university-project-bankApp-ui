@@ -7,7 +7,7 @@ import {ProfileComponent} from './profile.component';
 import {AppRoutingModule} from '../../app-routing.module';
 import {NavbarModule} from '../components/navbar/navbar.module';
 import {HttpClientModule} from '@angular/common/http';
-import {MatIconModule, MatMenuModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatMenuModule} from '@angular/material';
 import {ProfileShowModule} from '../components/profileShow/profileShow.module';
 import {ProfileEditModule} from '../components/profileEdit/profileEdit.module';
 
@@ -25,7 +25,8 @@ import {ProfileEditModule} from '../components/profileEdit/profileEdit.module';
     MatMenuModule,
     MatIconModule,
     ProfileShowModule,
-    ProfileEditModule
+    ProfileEditModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [ProfileComponent],

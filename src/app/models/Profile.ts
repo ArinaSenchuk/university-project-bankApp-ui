@@ -1,4 +1,4 @@
-import {ReferenceData} from '../../models/ReferenceData';
+import {ReferenceData} from './ReferenceData';
 
 export class Profile {
   lastname: string;

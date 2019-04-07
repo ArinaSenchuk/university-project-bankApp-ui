@@ -1,21 +1,32 @@
 <section class="header">
   <div class="header_banner">
     <div class="header_banner_img">
-      <a routerLink="/main"><img src="../../../../assets/img/logo/logo_good.jpg"></a>
+      <a routerLink="/main">
+        <img src="../../../../assets/img/logo/logo_good.jpg">
+      </a>
     </div>
-    <div class="header_banner_content">
-      <!--<ng-template *ngIf="!flag" (navbarEdited)="onNavbarChange()">-->
+    <div class="header_banner_content" *ngIf="flag() == false">
         <div class="header_banner_content_link">
           <a routerLink="/registration">Регистрация</a><br>
         </div>
         <div class="header_banner_content_link">
           <a routerLink="/login">Войти</a>
         </div>
-      <!--</ng-template>-->
+    </div>
+    <div class="header_banner_content" *ngIf="flag() == true">
+        <div class="header_banner_content_link">
+          <a routerLink="/main" (click)="exit()">Выйти</a>
+        </div>
+        <div class="header_banner_content_link">
+          <a routerLink="/profile">Личный кабинет</a>
+        </div>
     </div>
   </div>
+
   <div class="header_menu">
     <div class="header_menu_navbar">
+
+        <!--<button mat-button type="button" routerLink="/deposit">Депозит</button>-->
 
     </div>
   </div>

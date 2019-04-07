@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Profile} from '../../registration/profile';
+import {Profile} from '../../../models/Profile';
 import {HttpClient} from '@angular/common/http';
 import {TokenService} from '../../../service/token.service';
 import {Router} from '@angular/router';

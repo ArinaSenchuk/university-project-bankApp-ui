@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Profile} from '../registration/profile';
+import {Profile} from '../../models/Profile';
 import {HttpClient} from '@angular/common/http';
 import {TokenService} from '../../service/token.service';
 import {Router} from '@angular/router';
@@ -11,10 +11,10 @@ import {Router} from '@angular/router';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit{
+export class ProfileComponent implements OnInit {
 
   profile: Profile = new Profile();
-  flag = false;
+  flag = 0;
 
   constructor(private http: HttpClient,
               private tokenService: TokenService,
@@ -22,18 +22,18 @@ export class ProfileComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.http.get<Profile>(`http://localhost:8080/api/profiles/profile?access_token=${this.tokenService.token}`).subscribe(success => {
+    this.http.get<Profile>(`http://localhost:8080/api/profiles/current?access_token=${this.tokenService.token}`).subscribe(success => {
       this.profile = success;
     });
   }
 
 
   edit() {
-    this.flag = true;
+    this.flag = 1;
   }
 
   onProfileChange() {
-    this.flag = false;
+    this.flag = 0;
   }
 }
 

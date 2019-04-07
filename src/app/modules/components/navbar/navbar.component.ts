@@ -1,4 +1,7 @@
-import {Component} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {TokenService} from '../../../service/token.service';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -8,12 +11,18 @@ import {Component} from '@angular/core';
 })
 export class NavbarComponent {
 
-  flag = false;
+  constructor(private tokenService: TokenService,
+              private cdr: ChangeDetectorRef) {
+  }
 
-  //
-  // onNavbarChange() {
-  //   this.flag = true;
-  // }
+   flag() {
 
+    return this.tokenService.token !== '';
+    this.cdr.detectChanges();
+  }
+
+  exit() {
+     this.tokenService.token = '';
+  }
 }
 

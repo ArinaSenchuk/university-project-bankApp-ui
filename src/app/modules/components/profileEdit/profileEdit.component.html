@@ -15,7 +15,7 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-radio-group formControlName="sex" required>
-      <mat-radio-button *ngFor="let sex of options.sex" [value]="sex">{{sex.label}}</mat-radio-button>
+      <mat-radio-button *ngFor="let sex of profileOptions.sex" [value]="sex">{{sex.label}}</mat-radio-button>
     </mat-radio-group>
     <mat-form-field>
       <input matInput type="text" placeholder="Серия паспорта" formControlName="passportSeries" maxlength="2" pattern="[A-Za-z]{2}" required>
@@ -35,7 +35,7 @@
 
     <mat-form-field>
       <mat-select placeholder="Город фактического проживания" formControlName="city" required>
-        <mat-option *ngFor="let city of options.city" [value]="city">{{city.label}}</mat-option>
+        <mat-option *ngFor="let city of profileOptions.city" [value]="city">{{city.label}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field >
@@ -47,19 +47,19 @@
 
     <mat-form-field>
       <mat-select placeholder="Семейное положение" formControlName="familyStatus" [(value)]="profile.familyStatus"  required>
-        <mat-option  *ngFor="let status of options.status" [value]="status" >{{status.label}}</mat-option>
+        <mat-option *ngFor="let status of profileOptions.status" [value]="status" >{{status.label}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
       <mat-select placeholder="Гражданство" formControlName="nationality" [(value)]="profile.nationality" required>
-        <mat-option *ngFor="let nationality of options.nationality" [value]="nationality">{{nationality.label}}</mat-option>
+        <mat-option *ngFor="let nationality of profileOptions.nationality" [value]="nationality">{{nationality.label}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
       <mat-select placeholder="Инвалидность" formControlName="disability" required>
-        <mat-option *ngFor="let disability of options.disability" [value]="disability">{{disability.label}}</mat-option>
+        <mat-option *ngFor="let disability of profileOptions.disability" [value]="disability">{{disability.label}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
