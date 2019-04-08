@@ -8,5 +8,9 @@ export class Deposit {
   dateOfDepositStart: number[];
   depositTerm: ReferenceData = {id: 0, label: '', code: '', definition: ''};
   depositAmount: number;
+
+  dateOfDepositEnd: number[];
+  depositCharge: number;
+
 }
 
