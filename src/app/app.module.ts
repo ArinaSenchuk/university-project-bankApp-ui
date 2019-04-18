@@ -13,6 +13,8 @@ import {ProfileShowModule} from './modules/components/profileShow/profileShow.mo
 import {ProfileEditModule} from './modules/components/profileEdit/profileEdit.module';
 import {DepositModule} from './modules/deposit/deposit.module';
 import {ProfileAccountInfoModule} from './modules/components/profileAccountInfo/profileAccountInfo.module';
+import {CreditModule} from './modules/credit/credit.module';
+import {ProfileATMModule} from './modules/components/profileATM/profileATM.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {ProfileAccountInfoModule} from './modules/components/profileAccountInfo/
     ProfileShowModule,
     ProfileEditModule,
     ProfileAccountInfoModule,
-    DepositModule
+    DepositModule,
+    CreditModule,
+    ProfileATMModule
   ],
   providers: [],
   bootstrap: [AppComponent]

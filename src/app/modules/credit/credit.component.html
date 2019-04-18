@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <form [formGroup]="creditForm" class="creditForm">
+    <mat-form-field>
+      <mat-select placeholder="Вид кредита" formControlName="creditType" required>
+        <mat-option *ngFor="let creditType of creditOptions.creditType" [value]="creditType">{{creditType.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Номер догововра" formControlName="numberOfContract" pattern="[0-9]{8}" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Вид валюты" formControlName="currencyType" required>
+        <mat-option *ngFor="let currencyType of creditOptions.currencyType" [value]="currencyType">{{currencyType.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Дата начала кредитной программы" formControlName="dateOfCreditStart" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Срок кредита" formControlName="creditTerm" required>
+        <mat-option *ngFor="let creditTerm of creditOptions.creditTerm" [value]="creditTerm">{{creditTerm.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Сумма кредита" formControlName="creditAmount" pattern="[0-9]{3,}" required>
+    </mat-form-field>
+
+    <button mat-button type="submit" [disabled]="!creditForm.valid" (click)="onSubmit()">Оформить кредит</button>
+
+  </form>
+
+</div>

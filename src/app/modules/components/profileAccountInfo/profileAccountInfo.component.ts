@@ -3,6 +3,7 @@ import {ClientAccount} from '../../../models/ClientAccount';
 import {HttpClient} from '@angular/common/http';
 import {TokenService} from '../../../service/token.service';
 import {Router} from '@angular/router';
+import {Deposit} from '../../../models/Deposit';
 
 
 
@@ -14,6 +15,7 @@ import {Router} from '@angular/router';
 export class ProfileAccountInfoComponent implements OnInit {
 
   clientAccount: ClientAccount = new ClientAccount();
+  deposits: Deposit[] = [];
 
 
   constructor(private http: HttpClient,
@@ -23,6 +25,9 @@ export class ProfileAccountInfoComponent implements OnInit {
   ngOnInit() {
     this.http.get<ClientAccount>(`http://localhost:8080/api/client-account/current?access_token=${this.tokenService.token}`).subscribe(success => {
       this.clientAccount = success;
+    });
+    this.http.get<Deposit[]>(`http://localhost:8080/api/deposits?access_token=${this.tokenService.token}`).subscribe(success =>{
+      this.deposits = success;
     });
   }
 

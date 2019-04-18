@@ -3,12 +3,18 @@
   <div class="block">
     <h2>Личный счет</h2>
     <hr>
-    <p>Номер счета: {{clientAccount.accountNumber}}</p>
-    <p>Баланс: {{clientAccount.accountBalance}} бел.руб.</p>
+    <p><strong>Номер счета:</strong> {{clientAccount.accountNumber}}</p>
+    <p><strong>Баланс:</strong> {{clientAccount.accountBalance}} бел.руб.</p>
   </div>
   <div class="block">
-    <h2>Депозиты:</h2>
+    <h2>Депозиты</h2>
     <hr>
-    <p></p>
+    <div class="deposit" *ngFor="let deposit of deposits ">
+      <p><strong>Номер договора:</strong> {{deposit.numberOfContract}}</p>
+      <p><strong>Вид депозита:</strong> {{deposit.depositType.label}}</p>
+      <p><strong>Дата начала:</strong> {{deposit.dateOfDepositStart}}</p>
+      <p><strong>Дата окончания:</strong> {{deposit.dateOfDepositEnd}}</p>
+      <hr>
+    </div>
   </div>
 </div>

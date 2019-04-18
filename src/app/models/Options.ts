@@ -14,3 +14,9 @@ export class DepositOptions {
   depositType: ReferenceData[];
 
 }
+
+export class CreditOptions {
+  currencyType: ReferenceData[];
+  creditTerm: ReferenceData[];
+  creditType: ReferenceData[];
+}

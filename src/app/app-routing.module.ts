@@ -6,6 +6,8 @@ import {LoginComponent} from './modules/login/login.component';
 import {ProfileComponent} from './modules/profile/profile.component';
 import {DepositComponent} from './modules/deposit/deposit.component';
 import {ProfileAccountInfoComponent} from './modules/components/profileAccountInfo/profileAccountInfo.component';
+import {CreditComponent} from './modules/credit/credit.component';
+import {ProfileATMComponent} from './modules/components/profileATM/profileATM.component';
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'profileAccountInfo', component: ProfileAccountInfoComponent },
   { path: 'deposit', component: DepositComponent },
+  { path: 'credit', component: CreditComponent },
+  { path: 'atm', component: ProfileATMComponent },
   {
     path: '',
     redirectTo: '/main',
