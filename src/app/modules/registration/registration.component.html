@@ -3,81 +3,101 @@
 <div class="container">
   <h2>Заполните форму для регистрации</h2>
   <form class="form" [formGroup]="form">
-    <mat-form-field>
-      <input matInput type="text" placeholder="Фамилия" formControlName="lastname" pattern="^[А-Яа-яЁё]+$" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Фамилия</mat-label>
+      <input matInput type="text" formControlName="lastname" pattern="^[А-Яа-яЁё]+$" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" placeholder="Имя" formControlName="firstname" pattern="^[А-Яа-яЁё]+$" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Имя</mat-label>
+      <input matInput type="text" formControlName="firstname" pattern="^[А-Яа-яЁё]+$" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" placeholder="Отчество" formControlName="patronic" pattern="^[А-Яа-яЁё]+$" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Отчество</mat-label>
+      <input matInput type="text" formControlName="patronic" pattern="^[А-Яа-яЁё]+$" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Дата рождения" formControlName="dateOfBd" matDatepickerFilter required>
+    <mat-form-field appearance="outline">
+      <mat-label>Дата рождения</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateOfBd" matDatepickerFilter required>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <mat-radio-group formControlName="sex" required>
+    <mat-radio-group formControlName="sex" appearance="outline" required>
       <mat-radio-button *ngFor="let sex of profileOptions.sex" [value]="sex">{{sex.label}}</mat-radio-button>
     </mat-radio-group>
-    <mat-form-field>
-      <input matInput type="text" placeholder="Серия паспорта" formControlName="passportSeries" maxlength="2" pattern="[A-Za-z]{2}" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Серия паспорта</mat-label>
+      <input matInput type="text" formControlName="passportSeries" maxlength="2" pattern="[A-Za-z]{2}" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="number" placeholder="№ паспорта" formControlName="passportNumber" maxlength="7" pattern="[0-9]{7}" required>
+    <mat-form-field appearance="outline">
+      <mat-label>№ паспорта</mat-label>
+      <input matInput type="number" formControlName="passportNumber" maxlength="7" pattern="[0-9]{7}" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" placeholder="Кем выдан" formControlName="issuedBy" pattern="^[А-Яа-яЁё\s]+$" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Кем выдан</mat-label>
+      <input matInput type="text" formControlName="issuedBy" pattern="^[А-Яа-яЁё\s]+$" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" placeholder="Идентификационный номер" formControlName="identificationNumber" maxlength="14" pattern="[A-Za-z0-9]{14}" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Идентификационный номер</mat-label>
+      <input matInput type="text" formControlName="identificationNumber" maxlength="14" pattern="[A-Za-z0-9]{14}" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" placeholder="Место рождения" formControlName="placeOfBirth" pattern="^[А-Яа-яЁё\s]+$" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Место рождения</mat-label>
+      <input matInput type="text" formControlName="placeOfBirth" pattern="^[А-Яа-яЁё\s]+$" required>
     </mat-form-field>
-
-    <mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Город фактического проживания</mat-label>
       <mat-select placeholder="Город фактического проживания" formControlName="city" required>
         <mat-option *ngFor="let city of profileOptions.city" [value]="city">{{city.label}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field >
-      <input matInput type="text" placeholder="Адрес прописки" formControlName="address" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Адрес прописки</mat-label>
+      <input matInput type="text" formControlName="address" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="tel" placeholder="Мобильный телефон в формате +375-ХХ-ХХХ-ХХХХ" formControlName="phoneNumber" pattern="\+375-[0-9]{2}-[0-9]{3}-[0-9]{4}">
+    <mat-form-field appearance="outline">
+      <mat-label>Мобильный телефон в формате +375-ХХ-ХХХ-ХХХХ</mat-label>
+      <input matInput type="tel" formControlName="phoneNumber" pattern="\+375-[0-9]{2}-[0-9]{3}-[0-9]{4}">
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-select placeholder="Семейное положение" formControlName="familyStatus" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Семейное положение</mat-label>
+      <mat-select formControlName="familyStatus" required>
         <mat-option *ngFor="let status of profileOptions.status" [value]="status">{{status.label}}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-select placeholder="Гражданство" formControlName="nationality" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Гражданство</mat-label>
+      <mat-select formControlName="nationality" required>
         <mat-option *ngFor="let nationality of profileOptions.nationality" [value]="nationality">{{nationality.label}}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-select placeholder="Инвалидность" formControlName="disability" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Инвалидность</mat-label>
+      <mat-select formControlName="disability" required>
         <mat-option *ngFor="let disability of profileOptions.disability" [value]="disability">{{disability.label}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="number" placeholder="Ежемесячный доход" formControlName="revenue">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ежемесячная доход</mat-label>
+      <input matInput type="number" formControlName="revenue">
     </mat-form-field>
     <mat-checkbox formControlName="isRetiree">Пенсионер</mat-checkbox>
 
-    <mat-form-field>
-      <input matInput type="email" placeholder="Email" formControlName="email" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" placeholder="Логин" formControlName="login" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Логин</mat-label>
+      <input matInput type="text" formControlName="login" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="password" placeholder="Пароль" formControlName="password" pattern="[A-Za-z0-9]{8,}" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Пароль</mat-label>
+      <input matInput type="password" formControlName="password" pattern="[A-Za-z0-9]{8,}" [type]="hide ? 'password' : 'text'" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </mat-form-field>
 
 

@@ -1,8 +1,12 @@
 .form {
-  width: 40%;
+  width: 38%;
   margin: 2% auto;
   display: flex;
   flex-direction: column;
+
+  mat-form-field .mat-form-field-wrapper {
+    padding-bottom: 0.5em !important;
+  }
 }
 
 mat-radio-button {
@@ -12,4 +16,24 @@ mat-radio-button {
 h2 {
   margin: 1% 0;
   text-align: center;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.7em 0 0.7em 0 !important;
+}
+
+.mat-form-field-infix {
+  border-top: .5em solid transparent !important;
+}
+
+.mat-checkbox {
+  padding: 2px 0 9px 12px;
+}
+
+.mat-radio-group {
+  padding: 2px 0 9px 12px;
+}
+
+mat-icon  {
+  cursor: pointer !important;
 }

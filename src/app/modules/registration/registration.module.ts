@@ -6,7 +6,7 @@ import {
   MatButtonModule,
   MatCheckboxModule,
   MatDatepickerModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatIconModule,
   MatInputModule,
   MatNativeDateModule,
   MatRadioModule, MatSelectModule
@@ -37,7 +37,8 @@ import {AppRoutingModule} from '../../app-routing.module';
     MatSelectModule,
     MatCheckboxModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
 
   ],
   providers: [],
