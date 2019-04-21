@@ -15,6 +15,9 @@ import {ProfileOptions} from '../../models/Options';
 export class RegistrationComponent implements OnInit {
 
   hide = true;
+  currentDate = new Date(Date.now());
+  minDate = new Date(1920, 0, 1);
+  maxDate = new Date( this.currentDate.getFullYear() - 18, this.currentDate.getMonth(), this.currentDate.getDate());
 
   user: User = new User();
 

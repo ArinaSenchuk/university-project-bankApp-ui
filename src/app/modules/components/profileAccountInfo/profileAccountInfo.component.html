@@ -1,20 +1,19 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <div class="block">
-    <h2>Личный счет</h2>
-    <hr>
-    <p><strong>Номер счета:</strong> {{clientAccount.accountNumber}}</p>
-    <p><strong>Баланс:</strong> {{clientAccount.accountBalance}} бел.руб.</p>
-  </div>
-  <div class="block">
-    <h2>Депозиты</h2>
-    <hr>
-    <div class="deposit" *ngFor="let deposit of deposits ">
-      <p><strong>Номер договора:</strong> {{deposit.numberOfContract}}</p>
-      <p><strong>Вид депозита:</strong> {{deposit.depositType.label}}</p>
-      <p><strong>Дата начала:</strong> {{deposit.dateOfDepositStart}}</p>
-      <p><strong>Дата окончания:</strong> {{deposit.dateOfDepositEnd}}</p>
-      <hr>
-    </div>
-  </div>
+  <mat-tab-group>
+    <mat-tab label="Личный счет">
+      <p><strong>Номер счета:</strong> {{clientAccount.accountNumber}}</p>
+      <p><strong>Баланс:</strong> {{clientAccount.accountBalance}} бел.руб.</p>
+    </mat-tab>
+    <mat-tab label="Депозиты">
+      <div class="deposit" *ngFor="let deposit of deposits ">
+        <p><strong>Номер договора:</strong> {{deposit.numberOfContract}}</p>
+        <p><strong>Вид депозита:</strong> {{deposit.depositType.label}}</p>
+        <p><strong>Дата начала:</strong> {{deposit.dateOfDepositStart}}</p>
+        <p><strong>Дата окончания:</strong> {{deposit.dateOfDepositEnd}}</p>
+        <hr>
+      </div>
+    </mat-tab>
+    <mat-tab label="Кредиты"></mat-tab>
+  </mat-tab-group>
 </div>

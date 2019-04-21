@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {ClientAccount} from '../../../models/ClientAccount';
 import {HttpClient} from '@angular/common/http';
 import {TokenService} from '../../../service/token.service';
@@ -10,7 +10,8 @@ import {Deposit} from '../../../models/Deposit';
 @Component({
   selector: 'app-profile-account-info',
   templateUrl: './profileAccountInfo.component.html',
-  styleUrls: ['./profileAccountInfo.component.scss']
+  styleUrls: ['./profileAccountInfo.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProfileAccountInfoComponent implements OnInit {
 

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {TokenService} from '../../../service/token.service';
 import {Router} from '@angular/router';
@@ -9,7 +9,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-profile-account-info',
   templateUrl: './profileATM.component.html',
-  styleUrls: ['./profileATM.component.scss']
+  styleUrls: ['./profileATM.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProfileATMComponent {
 

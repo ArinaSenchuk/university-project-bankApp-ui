@@ -1,37 +1,46 @@
 <app-navbar></app-navbar>
 
 <div class="container">
+  <h3>Заполните форму для оформления депозита</h3>
+
   <form [formGroup]="depositForm" class="depositForm">
-    <mat-form-field>
-      <mat-select placeholder="Вид депозита" formControlName="depositType" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Вид депозита</mat-label>
+      <mat-select formControlName="depositType" required>
         <mat-option *ngFor="let depositType of depositOptions.depositType" [value]="depositType">{{depositType.label}}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput type="number" placeholder="Номер догововра" formControlName="numberOfContract" pattern="[0-9]{8}" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Номер договора</mat-label>
+      <input matInput #numOfContract type="number" formControlName="numberOfContract" pattern="[0-9]{8}" required>
+      <mat-hint align="end">{{numOfContract.value?.length || 0}}/8</mat-hint>
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-select placeholder="Вид валюты" formControlName="currencyType" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Вид валюты</mat-label>
+      <mat-select formControlName="currencyType" required>
         <mat-option *ngFor="let currencyType of depositOptions.currencyType" [value]="currencyType">{{currencyType.label}}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Дата начала депозитной программы" formControlName="dateOfDepositStart" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Дата начала депозитной программы</mat-label>
+      <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="dateOfDepositStart" required>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-select placeholder="Срок депозита" formControlName="depositTerm" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Срок депозита</mat-label>
+      <mat-select formControlName="depositTerm" required>
         <mat-option *ngFor="let depositTerm of depositOptions.depositTerm" [value]="depositTerm">{{depositTerm.label}}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput type="number" placeholder="Сумма вклада" formControlName="depositAmount" pattern="[0-9]{3,}" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Сумма вклада</mat-label>
+      <input matInput type="number" formControlName="depositAmount" pattern="[0-9]{3,}" required>
     </mat-form-field>
 
     <button mat-button type="submit" [disabled]="!depositForm.valid" (click)="onSubmit()">Оформить депозит</button>

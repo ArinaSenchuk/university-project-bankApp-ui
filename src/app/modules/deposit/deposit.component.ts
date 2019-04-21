@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -10,9 +10,13 @@ import {TokenService} from '../../service/token.service';
 @Component({
   selector: 'app-deposit',
   templateUrl: './deposit.component.html',
-  styleUrls: ['./deposit.component.scss']
+  styleUrls: ['./deposit.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DepositComponent implements OnInit {
+
+  minDate = new Date(Date.now());
+  maxDate = new Date(this.minDate.getFullYear() + 1 , this.minDate.getMonth(), this.minDate.getDate());
 
   deposit: Deposit = new Deposit();
   depositOptions: DepositOptions = new DepositOptions();

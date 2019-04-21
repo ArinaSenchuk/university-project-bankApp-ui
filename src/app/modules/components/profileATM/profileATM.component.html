@@ -1,13 +1,14 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <h1>Банкомат</h1>
+  <h3>Банкомат</h3>
   <form class="form" [formGroup]="form">
     <mat-radio-group formControlName="operation" required>
       <mat-radio-button value="put">Положить</mat-radio-button>
       <mat-radio-button value="get">Снять</mat-radio-button>
     </mat-radio-group>
-    <mat-form-field>
-      <input matInput type="text" placeholder="Введите сумму" formControlName="amount" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Введите сумму</mat-label>
+      <input matInput type="number" formControlName="amount" pattern="[0-9]{1,}" required>
     </mat-form-field>
 
     <button mat-button type="submit" [disabled]="!form.valid" (click)="onSubmit()">Выполнить</button>

@@ -6,6 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ProfileAccountInfoComponent} from './profileAccountInfo.component';
 import {AppRoutingModule} from '../../../app-routing.module';
 import {NavbarModule} from '../navbar/navbar.module';
+import {MatTabsModule} from '@angular/material';
 
 
 
@@ -17,8 +18,8 @@ import {NavbarModule} from '../navbar/navbar.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NavbarModule
-
+    NavbarModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [ProfileAccountInfoComponent],

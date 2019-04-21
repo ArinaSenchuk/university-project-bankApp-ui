@@ -1,14 +1,17 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-  <h2>Войти</h2>
+  <h3>Войти</h3>
   <form class="form">
 
-    <mat-form-field>
-      <input matInput type="text" placeholder="Логин" [formControl]="login" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Логин</mat-label>
+      <input matInput type="text" [formControl]="login" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="password" placeholder="Пароль" [formControl]="password" pattern="[A-Za-z0-9]{1,}" required>
+    <mat-form-field appearance="outline">
+      <mat-label>Пароль</mat-label>
+      <input matInput type="password" [formControl]="password" pattern="[A-Za-z0-9]{8,}" [type]="hide ? 'password' : 'text'" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </mat-form-field>
 
     <button mat-button type="submit" (click)="onSubmit()">Войти</button>

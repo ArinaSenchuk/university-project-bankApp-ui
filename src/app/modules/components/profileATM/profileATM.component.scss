@@ -1,6 +1,32 @@
-.container {
-  width: 40%;
-  margin: 0 auto;
-
+.form {
+  width: 30%;
+  margin: 1% auto;
+  display: flex;
+  flex-direction: column;
 }
 
+h3 {
+  margin: 2% 0 0 0;
+  text-align: center;
+}
+
+.mat-radio-group {
+  padding: 2px 0 1px 12px;
+}
+
+.mat-radio-button {
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+mat-form-field .mat-form-field-wrapper {
+  padding-bottom: 0.5em !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.7em 0 0.7em 0 !important;
+}
+
+.mat-form-field-infix {
+  border-top: .5em solid transparent !important;
+}

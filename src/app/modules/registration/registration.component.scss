@@ -1,6 +1,6 @@
 .form {
-  width: 38%;
-  margin: 2% auto;
+  width: 35%;
+  margin: 1% auto;
   display: flex;
   flex-direction: column;
 
@@ -13,8 +13,8 @@ mat-radio-button {
   margin: 0 10% 0 0;
 }
 
-h2 {
-  margin: 1% 0;
+h3 {
+  margin: 3% 0 0 0;
   text-align: center;
 }
 
@@ -36,4 +36,8 @@ h2 {
 
 mat-icon  {
   cursor: pointer !important;
+}
+
+.mat-form-field-subscript-wrapper {
+  margin: 0;
 }

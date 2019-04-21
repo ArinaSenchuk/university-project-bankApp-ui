@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {TokenService} from '../../service/token.service';
@@ -9,9 +9,12 @@ import {AuthToken} from '../../models/AuthToken';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent {
+
+  hide = true;
 
   login: FormControl = new FormControl('', Validators.required);
   password: FormControl = new FormControl('', Validators.required);

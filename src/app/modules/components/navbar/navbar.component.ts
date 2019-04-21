@@ -1,7 +1,5 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {TokenService} from '../../../service/token.service';
-import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
 
 
 @Component({
