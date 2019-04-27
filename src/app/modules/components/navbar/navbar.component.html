@@ -23,11 +23,12 @@
     </div>
   </div>
 
-  <div class="header_menu">
-    <div class="header_menu_navbar">
-
-        <!--<button mat-button type="button" routerLink="/deposit">Депозит</button>-->
-
+  <div class="header_menu" >
+    <div class="header_menu_navbar" *ngIf="flag() == true">
+      <button mat-button type="button" routerLink="/profileAccountInfo">Информация о счетах</button>
+      <button mat-button type="button" routerLink="/atm">Банкомат</button>
+      <button mat-button type="button" routerLink="/deposit">Оформить депозит</button>
+      <button mat-button type="button" routerLink="/credit">Оформить кредит</button>
     </div>
   </div>
 </section>

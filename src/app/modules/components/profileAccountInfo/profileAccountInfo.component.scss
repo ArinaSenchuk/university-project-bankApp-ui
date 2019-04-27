@@ -1,8 +1,17 @@
 .container {
+  width: 100%;
+}
+
+.content {
   width: 50%;
-  margin: 3% auto;
+  margin: 1% auto;
 }
 
 .mat-tab-body-wrapper {
   padding-left: 2%;
+}
+
+h3 {
+  margin: 2% 0 0 0;
+  text-align: center;
 }

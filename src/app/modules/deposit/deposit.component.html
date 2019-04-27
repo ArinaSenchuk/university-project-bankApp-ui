@@ -26,7 +26,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Дата начала депозитной программы</mat-label>
-      <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="dateOfDepositStart" required>
+      <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="dateOfDepositStart" matDatepickerFilter required>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>

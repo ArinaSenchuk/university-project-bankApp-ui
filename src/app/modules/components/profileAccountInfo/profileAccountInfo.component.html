@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <mat-tab-group>
+  <h3>Информация о счетах</h3>
+  <mat-tab-group mat-align-tabs="center" class="content">
     <mat-tab label="Личный счет">
       <p><strong>Номер счета:</strong> {{clientAccount.accountNumber}}</p>
       <p><strong>Баланс:</strong> {{clientAccount.accountBalance}} бел.руб.</p>
@@ -11,6 +12,7 @@
         <p><strong>Вид депозита:</strong> {{deposit.depositType.label}}</p>
         <p><strong>Дата начала:</strong> {{deposit.dateOfDepositStart}}</p>
         <p><strong>Дата окончания:</strong> {{deposit.dateOfDepositEnd}}</p>
+        <p><strong>Сумма вклада:</strong> {{deposit.depositAmount}}</p>
         <hr>
       </div>
     </mat-tab>

@@ -6,6 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MainComponent} from './main.component';
 import {AppRoutingModule} from '../../app-routing.module';
 import {NavbarModule} from '../components/navbar/navbar.module';
+import {MatTableModule} from '@angular/material';
 
 
 
@@ -17,7 +18,8 @@ import {NavbarModule} from '../components/navbar/navbar.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NavbarModule
+    NavbarModule,
+    MatTableModule
 
   ],
   providers: [],

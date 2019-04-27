@@ -4,7 +4,7 @@ export class Profile {
   lastname: string;
   firstname: string;
   patronic: string;
-  dateOfBd: number[];
+  dateOfBd: Date;
   sex: ReferenceData = {id: 0, label: '', code: '', definition: ''};
   passportSeries: string;
   passportNumber: string;

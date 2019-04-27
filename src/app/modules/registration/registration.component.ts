@@ -15,6 +15,7 @@ import {ProfileOptions} from '../../models/Options';
 export class RegistrationComponent implements OnInit {
 
   hide = true;
+
   currentDate = new Date(Date.now());
   minDate = new Date(1920, 0, 1);
   maxDate = new Date( this.currentDate.getFullYear() - 18, this.currentDate.getMonth(), this.currentDate.getDate());
@@ -41,6 +42,7 @@ export class RegistrationComponent implements OnInit {
     this.profile.lastname = this.form.controls['lastname'].value;
     this.profile.patronic = this.form.controls['patronic'].value;
     this.profile.dateOfBd = this.form.controls['dateOfBd'].value;
+    this.profile.dateOfBd.setHours(13);
     this.profile.sex = this.form.controls['sex'].value;
     this.profile.passportSeries = this.form.controls['passportSeries'].value;
     this.profile.passportNumber = this.form.controls['passportNumber'].value;

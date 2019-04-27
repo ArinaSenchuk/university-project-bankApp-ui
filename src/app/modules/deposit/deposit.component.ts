@@ -36,6 +36,7 @@ export class DepositComponent implements OnInit {
     this.deposit.numberOfContract = this.depositForm.controls['numberOfContract'].value;
     this.deposit.currencyType = this.depositForm.controls['currencyType'].value;
     this.deposit.dateOfDepositStart = this.depositForm.controls['dateOfDepositStart'].value;
+    this.deposit.dateOfDepositStart.setHours(13);
     this.deposit.depositTerm = this.depositForm.controls['depositTerm'].value;
     this.deposit.depositAmount = this.depositForm.controls['depositAmount'].value;
 
