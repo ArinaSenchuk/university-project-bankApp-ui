@@ -10,12 +10,24 @@
       <div class="deposit" *ngFor="let deposit of deposits ">
         <p><strong>Номер договора:</strong> {{deposit.numberOfContract}}</p>
         <p><strong>Вид депозита:</strong> {{deposit.depositType.label}}</p>
+        <p><strong>Вид валюты:</strong> {{deposit.currencyType.label}}</p>
         <p><strong>Дата начала:</strong> {{deposit.dateOfDepositStart}}</p>
         <p><strong>Дата окончания:</strong> {{deposit.dateOfDepositEnd}}</p>
         <p><strong>Сумма вклада:</strong> {{deposit.depositAmount}}</p>
         <hr>
       </div>
     </mat-tab>
-    <mat-tab label="Кредиты"></mat-tab>
+    <mat-tab label="Кредиты">
+      <div class="credit" *ngFor="let credit of credits">
+        <p><strong>Номер договора:</strong> {{credit.numberOfContract}}</p>
+        <p><strong>Вид кредита:</strong> {{credit.creditType.label}}</p>
+        <p><strong>Вид валюты:</strong> {{credit.currencyType.label}}</p>
+        <p><strong>Дата начала:</strong> {{credit.dateOfCreditStart}}</p>
+        <p><strong>Дата окончания:</strong> {{credit.dateOfCreditEnd}}</p>
+        <p><strong>Сумма кредита:</strong> {{credit.creditAmount}}</p>
+        <!--<p><strong>Платеж </strong> {{credit.dateOfCreditStart.getDate().toString()}} числа каждого месяца</p>-->
+        <hr>
+      </div>
+    </mat-tab>
   </mat-tab-group>
 </div>

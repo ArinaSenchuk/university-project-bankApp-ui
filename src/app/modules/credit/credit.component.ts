@@ -37,6 +37,7 @@ export class CreditComponent implements OnInit {
     this.credit.numberOfContract = this.creditForm.controls['numberOfContract'].value;
     this.credit.currencyType = this.creditForm.controls['currencyType'].value;
     this.credit.dateOfCreditStart = this.creditForm.controls['dateOfCreditStart'].value;
+    this.credit.dateOfCreditStart.setHours(13);
     this.credit.creditTerm = this.creditForm.controls['creditTerm'].value;
     this.credit.creditAmount = this.creditForm.controls['creditAmount'].value;
 

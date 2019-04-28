@@ -10,7 +10,6 @@ export class Credit {
   creditAmount: number;
 
   dateOfCreditEnd: Date;
-  creditCharge: number;
 
 }
 

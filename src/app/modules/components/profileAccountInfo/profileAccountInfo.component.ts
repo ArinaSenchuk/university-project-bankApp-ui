@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {TokenService} from '../../../service/token.service';
 import {Router} from '@angular/router';
 import {Deposit} from '../../../models/Deposit';
+import {Credit} from '../../../models/Credit';
 
 
 
@@ -17,6 +18,7 @@ export class ProfileAccountInfoComponent implements OnInit {
 
   clientAccount: ClientAccount = new ClientAccount();
   deposits: Deposit[] = [];
+  credits: Credit[] = [];
 
 
   constructor(private http: HttpClient,
@@ -29,6 +31,9 @@ export class ProfileAccountInfoComponent implements OnInit {
     });
     this.http.get<Deposit[]>(`http://localhost:8080/api/deposits?access_token=${this.tokenService.token}`).subscribe(success =>{
       this.deposits = success;
+    });
+    this.http.get<Credit[]>(`http://localhost:8080/api/credits?access_token=${this.tokenService.token}`).subscribe(success => {
+      this.credits = success;
     });
   }
 
