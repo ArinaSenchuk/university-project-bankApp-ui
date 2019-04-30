@@ -3,6 +3,7 @@ import {Profile} from '../../models/Profile';
 import {HttpClient} from '@angular/common/http';
 import {TokenService} from '../../service/token.service';
 import {Router} from '@angular/router';
+import {error} from '@angular/compiler/src/util';
 
 
 
@@ -15,6 +16,7 @@ export class ProfileComponent implements OnInit {
 
   profile: Profile = new Profile();
   flag = 0;
+  deleteValue: boolean;
 
   constructor(private http: HttpClient,
               private tokenService: TokenService,
@@ -27,6 +29,17 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  delete() {
+    this.http.get<boolean>(`http://localhost:8080/api/profiles/delete?access_token=${this.tokenService.token}`).subscribe(success => {
+      this.deleteValue = success;
+      if(success) {
+        this.tokenService.token = '';
+        this.router.navigate(['/main']);
+      } else {
+        alert('Аккаунт не может быть удален! ');
+      }
+    });
+  }
 
   edit() {
     this.flag = 1;

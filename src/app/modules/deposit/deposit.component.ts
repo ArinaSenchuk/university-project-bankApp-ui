@@ -40,8 +40,12 @@ export class DepositComponent implements OnInit {
     this.deposit.depositTerm = this.depositForm.controls['depositTerm'].value;
     this.deposit.depositAmount = this.depositForm.controls['depositAmount'].value;
 
-    this.http.post(`http://localhost:8080/api/deposits/save?access_token=${this.tokenService.token}`, this.deposit).subscribe(success => {
-      this.router.navigate(['/profile']);
+    this.http.post<boolean>(`http://localhost:8080/api/deposits/save?access_token=${this.tokenService.token}`, this.deposit).subscribe(success => {
+      if (success) {
+        this.router.navigate(['/profile']);
+      } else {
+       alert('Недостаточно средств на счете!');
+      }
       });
   }
 

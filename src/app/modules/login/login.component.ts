@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {TokenService} from '../../service/token.service';
 import {Router} from '@angular/router';
 import {AuthToken} from '../../models/AuthToken';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 
 @Component({
@@ -38,10 +39,12 @@ export class LoginComponent {
           }
         }).subscribe(
         success => {
-          this.tokenService.token = success.access_token;
-          this.router.navigate([ '/profile' ]);
-        }
-      );
+            this.tokenService.token = success.access_token;
+            this.router.navigate([ '/profile' ]);
+          },
+        error => {
+          alert('Неверный пароль или логин!');
+        });
   }
 
 }

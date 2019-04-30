@@ -26,7 +26,12 @@ export class ProfileATMComponent {
       });
     } else {
       this.http.post(`http://localhost:8080/api/client-account/get?access_token=${this.tokenService.token}`, this.form.controls['amount'].value).subscribe(success => {
-        this.router.navigate(['/profile']);
+        if (success) {
+          this.router.navigate(['/profile']);
+        } else {
+          alert('Недостаточно средств на счете!');
+        }
+
       });
     }
   }
