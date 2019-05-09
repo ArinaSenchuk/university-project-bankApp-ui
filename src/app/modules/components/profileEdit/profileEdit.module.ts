@@ -9,13 +9,14 @@ import {
   MatButtonModule,
   MatCheckboxModule,
   MatDatepickerModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatIconModule,
   MatInputModule,
   MatNativeDateModule,
   MatRadioModule,
   MatSelectModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -36,7 +37,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatRadioModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [ProfileEditComponent],

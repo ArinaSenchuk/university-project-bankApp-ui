@@ -1,18 +1,24 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ProfileOptions} from '../../../models/Options';
 import {Profile} from '../../../models/Profile';
 import {TokenService} from '../../../service/token.service';
 import {Router} from '@angular/router';
+import {ReferenceData} from '../../../models/ReferenceData';
 
 
 @Component({
   selector: 'app-profileedit',
   templateUrl: './profileEdit.component.html',
-  styleUrls: ['./profileEdit.component.scss']
+  styleUrls: ['./profileEdit.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProfileEditComponent implements OnInit {
+
+  currentDate = new Date(Date.now());
+  minDate = new Date(1920, 0, 1);
+  maxDate = new Date(this.currentDate.getFullYear() - 18, this.currentDate.getMonth(), this.currentDate.getDate());
 
   constructor(private http: HttpClient,
               private tokenService: TokenService,
@@ -25,6 +31,11 @@ export class ProfileEditComponent implements OnInit {
   @Input() profile: Profile = new Profile();
   @Output() profileEdited = new EventEmitter();
 
+  previous: ReferenceData = new ReferenceData();
+  selectedCity: ReferenceData = this.previous;
+  selectedFamilyStatus: ReferenceData = this.previous;
+  selectedNationality: ReferenceData = this.previous;
+  selectedDisability: ReferenceData = this.previous;
 
   form = new FormGroup({
     lastname: new FormControl(),
@@ -56,7 +67,6 @@ export class ProfileEditComponent implements OnInit {
   }
 
 
-
   buildForm() {
 
     this.form.controls['lastname'].setValue(this.profile.lastname);
@@ -69,7 +79,7 @@ export class ProfileEditComponent implements OnInit {
     this.form.controls['issuedBy'].setValue(this.profile.issuedBy);
     this.form.controls['identificationNumber'].setValue(this.profile.identificationNumber);
     this.form.controls['placeOfBirth'].setValue(this.profile.placeOfBirth);
-    this.form.controls['city'].setValue(this.profile.city);
+    this.form.controls['city'].setValue(this.profile.city.label);
     this.form.controls['address'].setValue(this.profile.address);
     this.form.controls['phoneNumber'].setValue(this.profile.phoneNumber);
     this.form.controls['familyStatus'].setValue(this.profile.familyStatus);
@@ -89,12 +99,12 @@ export class ProfileEditComponent implements OnInit {
     this.profile.issuedBy = this.form.controls['issuedBy'].value;
     this.profile.identificationNumber = this.form.controls['identificationNumber'].value;
     this.profile.placeOfBirth = this.form.controls['placeOfBirth'].value;
-    this.profile.city = this.form.controls['city'].value;
+    this.profile.city = this.selectedCity === this.previous ? this.profile.city : this.selectedCity;
     this.profile.address = this.form.controls['address'].value;
     this.profile.phoneNumber = this.form.controls['phoneNumber'].value;
-    this.profile.familyStatus = this.form.controls['familyStatus'].value;
-    this.profile.nationality = this.form.controls['nationality'].value;
-    this.profile.disability = this.form.controls['disability'].value;
+    this.profile.familyStatus = this.selectedFamilyStatus === this.previous ? this.profile.familyStatus : this.selectedFamilyStatus;
+    this.profile.nationality = this.selectedNationality === this.previous ? this.profile.nationality : this.selectedNationality;
+    this.profile.disability = this.selectedDisability === this.previous ? this.profile.disability : this.selectedDisability;
 
     if (this.form.controls['revenue'].value === ' ') {
       this.profile.revenue = null;
@@ -107,8 +117,24 @@ export class ProfileEditComponent implements OnInit {
     this.http.put(`http://localhost:8080/api/profiles?access_token=${this.tokenService.token}`, this.profile).subscribe(success => {
       this.cdr.detectChanges();
       this.profileEdited.emit();
-  }, error => alert(error.error.message));
+    }, error => alert(error.error.message));
 
-}
+  }
+
+  getCities() {
+    return this.profileOptions.city.filter(city => city.code !== this.profile.city.code);
+  }
+
+  getFamilyStatus() {
+    return this.profileOptions.status.filter(status => status.code !== this.profile.familyStatus.code);
+  }
+
+  getNationality() {
+    return this.profileOptions.nationality.filter( nationality => nationality.code !== this.profile.nationality.code);
+  }
+
+  getDisability() {
+    return this.profileOptions.disability.filter( disability => disability.code !== this.profile.disability.code);
+  }
 
 }
