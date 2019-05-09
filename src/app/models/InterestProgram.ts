@@ -2,8 +2,9 @@ import {ReferenceData} from './ReferenceData';
 
 export class InterestProgram {
 
-  programName: ReferenceData = {id: 0, label: '', code: '', definition: ''};
-  programTerm: ReferenceData = {id: 0, label: '', code: '', definition: ''};
+  id: number;
+  program: ReferenceData = {id: 0, label: '', code: '', definition: ''};
+  term: ReferenceData = {id: 0, label: '', code: '', definition: ''};
 
   interest: string;
 }

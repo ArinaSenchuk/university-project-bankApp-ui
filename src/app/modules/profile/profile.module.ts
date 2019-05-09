@@ -32,4 +32,5 @@ import {ProfileEditModule} from '../components/profileEdit/profileEdit.module';
   bootstrap: [ProfileComponent],
   exports: [ProfileComponent]
 })
-export class ProfileModule { }
+export class ProfileModule {}
+

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {InterestProgram} from '../../models/InterestProgram';
-import {forEach} from '@angular/router/src/utils/collection';
 
 
 @Component({
@@ -13,13 +12,14 @@ export class MainComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  interestProgram: InterestProgram = new InterestProgram();
+  interestProgram: InterestProgram[] = [];
+
+  displayedColumns: string[] = ['name', 'term', 'interest'];
 
 
   ngOnInit() {
-    this.http.get<InterestProgram>('http://localhost:8080/interest-program').subscribe(success => {
+    this.http.get<InterestProgram[]>('http://localhost:8080/interest-program').subscribe(success => {
       this.interestProgram = success;
     });
   }
-
 }
